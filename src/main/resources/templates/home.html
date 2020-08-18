@@ -16,8 +16,9 @@
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+                <a href="/new"><button type="button" class="btn btn-sm btn-outline-secondary">New</button></a>
+                <a href="/papers/truncate"><button type="button" class="btn btn-sm btn-outline-secondary">Truncate</button></a>
+                <a href="/papers"><button type="button" class="btn btn-sm btn-outline-secondary">Export</button></a>
             </div>
         </div>
     </div>
@@ -34,6 +35,7 @@
                 <th>NumTrades</th>
                 <th>Open</th>
                 <th>Close</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -46,6 +48,7 @@
                 <td th:text="${paper.numtrades}"/>
                 <td th:text="${paper.open}"/>
                 <td th:text="${paper.close}"/>
+                <td><a th:href="@{'/papers/delete/' + ${paper.id}}">delete</a></td>
             </tr>
             </tbody>
         </table>
