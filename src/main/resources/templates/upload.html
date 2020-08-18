@@ -1,0 +1,26 @@
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Market API test project">
+    <meta name="author" content="Evgeniy Anisimov">
+    <title>MAPI</title>
+    <style>.error { color: red; }</style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+<header th:insert="blocks/header.html :: header"></header>
+<main role="main" class="pl-5 pr-5">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
+        <h1 class="h2">Upload file</h1>
+        <form method="post" modelAttribute="fileModel" enctype="multipart/form-data">
+            Upload File: <input type="file" path="file" id="file"/>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</main>
+
+</body>
+</html>

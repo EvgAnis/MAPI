@@ -1,15 +1,22 @@
 package ru.serverflot.mapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
 import javax.persistence.*;
-import java.sql.Date;
 
 @Entity
 @Table(name = "tab_papers")
 public class Paper extends AuditModel {
+    public Paper() { }
+
+    public Paper(String secid, String name, String emitent_title, String tradedate, Integer numtrades, Double open, Double close) {
+        this.secid = secid;
+        this.name = name;
+        this.emitent_title = emitent_title;
+        this.tradedate = tradedate;
+        this.numtrades = numtrades;
+        this.open = open;
+        this.close = close;
+    }
+
     @Id
     @GeneratedValue(generator = "tab_papers_generator")
     @SequenceGenerator(
@@ -19,74 +26,26 @@ public class Paper extends AuditModel {
     )
     private Long id;
 
-    @Column(name = "secid", insertable = false, updatable = false)
+    @Column
     private String secid;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "secid", nullable = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
-    private History paperHistory;
+    @Column
+    private String name;
 
     @Column
-    private String boardid;
+    private String emitent_title;
 
     @Column
-    private Date tradedate;
+    private String tradedate;
 
     @Column
-    private String shortname;
-
-    @Column
-    private Double numtrades;
-
-    @Column
-    private Double value;
+    private Integer numtrades;
 
     @Column
     private Double open;
 
     @Column
-    private Double low;
-
-    @Column
-    private Double high;
-
-    @Column
-    private Double legalcloseprice;
-
-    @Column
-    private Double waprice;
-
-    @Column
     private Double close;
-
-    @Column
-    private Double volume;
-
-    @Column
-    private Double marketprice2;
-
-    @Column
-    private Double marketprice3;
-
-    @Column
-    private Double admittedquote;
-
-    @Column
-    private Double mp2valtrd;
-
-    @Column
-    private Double marketprice3tradesvalue;
-
-    @Column
-    private Double admittedvalue;
-
-    @Column
-    private Double waval;
-
-    @Column
-    private Long tradingsession;
 
     public Long getId() {
         return id;
@@ -104,52 +63,36 @@ public class Paper extends AuditModel {
         this.secid = secid;
     }
 
-    public History getPaperHistory() {
-        return paperHistory;
+    public String getName() {
+        return name;
     }
 
-    public void setPaperHistory(History paperHistory) {
-        this.paperHistory = paperHistory;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getBoardid() {
-        return boardid;
+    public String getEmitent_title() {
+        return emitent_title;
     }
 
-    public void setBoardid(String boardid) {
-        this.boardid = boardid;
+    public void setEmitent_title(String emitent_title) {
+        this.emitent_title = emitent_title;
     }
 
-    public Date getTradedate() {
+    public String getTradedate() {
         return tradedate;
     }
 
-    public void setTradedate(Date tradedate) {
+    public void setTradedate(String tradedate) {
         this.tradedate = tradedate;
     }
 
-    public String getShortname() {
-        return shortname;
-    }
-
-    public void setShortname(String shortname) {
-        this.shortname = shortname;
-    }
-
-    public Double getNumtrades() {
+    public Integer getNumtrades() {
         return numtrades;
     }
 
-    public void setNumtrades(Double numtrades) {
+    public void setNumtrades(Integer numtrades) {
         this.numtrades = numtrades;
-    }
-
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
     }
 
     public Double getOpen() {
@@ -160,115 +103,11 @@ public class Paper extends AuditModel {
         this.open = open;
     }
 
-    public Double getLow() {
-        return low;
-    }
-
-    public void setLow(Double low) {
-        this.low = low;
-    }
-
-    public Double getHigh() {
-        return high;
-    }
-
-    public void setHigh(Double high) {
-        this.high = high;
-    }
-
-    public Double getLegalcloseprice() {
-        return legalcloseprice;
-    }
-
-    public void setLegalcloseprice(Double legalcloseprice) {
-        this.legalcloseprice = legalcloseprice;
-    }
-
-    public Double getWaprice() {
-        return waprice;
-    }
-
-    public void setWaprice(Double waprice) {
-        this.waprice = waprice;
-    }
-
     public Double getClose() {
         return close;
     }
 
     public void setClose(Double close) {
         this.close = close;
-    }
-
-    public Double getVolume() {
-        return volume;
-    }
-
-    public void setVolume(Double volume) {
-        this.volume = volume;
-    }
-
-    public Double getMarketprice2() {
-        return marketprice2;
-    }
-
-    public void setMarketprice2(Double marketprice2) {
-        this.marketprice2 = marketprice2;
-    }
-
-    public Double getMarketprice3() {
-        return marketprice3;
-    }
-
-    public void setMarketprice3(Double marketprice3) {
-        this.marketprice3 = marketprice3;
-    }
-
-    public Double getAdmittedquote() {
-        return admittedquote;
-    }
-
-    public void setAdmittedquote(Double admittedquote) {
-        this.admittedquote = admittedquote;
-    }
-
-    public Double getMp2valtrd() {
-        return mp2valtrd;
-    }
-
-    public void setMp2valtrd(Double mp2valtrd) {
-        this.mp2valtrd = mp2valtrd;
-    }
-
-    public Double getMarketprice3tradesvalue() {
-        return marketprice3tradesvalue;
-    }
-
-    public void setMarketprice3tradesvalue(Double marketprice3tradesvalue) {
-        this.marketprice3tradesvalue = marketprice3tradesvalue;
-    }
-
-    public Double getAdmittedvalue() {
-        return admittedvalue;
-    }
-
-    public void setAdmittedvalue(Double admittedvalue) {
-        this.admittedvalue = admittedvalue;
-    }
-
-    public Double getWaval() {
-        return waval;
-    }
-
-    public void setWaval(Double waval) {
-        this.waval = waval;
-    }
-
-    public Long getTradingsession() {
-        return tradingsession;
-    }
-
-    public void setTradingsession(Long tradingsession) {
-        this.tradingsession = tradingsession;
     }
 }
