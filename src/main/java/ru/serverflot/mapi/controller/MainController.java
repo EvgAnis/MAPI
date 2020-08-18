@@ -34,4 +34,10 @@ public class MainController {
         model.addAttribute("title", "Help");
         return "help";
     }
+
+    @GetMapping("/securities")
+    public String getSecurities(Model model) {
+
+        return "home";
+    }
 }
