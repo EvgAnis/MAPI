@@ -15,8 +15,8 @@
 <main role="main" class="pl-5 pr-5">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
         <h1 class="h2">Upload file</h1>
-        <form method="post" modelAttribute="fileModel" enctype="multipart/form-data">
-            Upload File: <input type="file" path="file" id="file"/>
+        <form method="post" enctype="multipart/form-data">
+            Upload File: <input type="file" path="file" id="file" name="file"/>
             <input type="submit" value="Upload">
         </form>
     </div>
