@@ -12,8 +12,99 @@
 <body>
 <header th:insert="blocks/header.html :: header"></header>
 <main role="main" class="pl-5 pr-5">
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2">
+    <div class="pt-3 pb-2">
         <h1 class="h2">Help</h1>
+        <p><br>Добрый день.
+        <p><br>Заранее приношу извинения за отсутствие в большинстве случаев обработки Exception'ов,
+        многое захардкожено и т.д.
+
+        <br><p>Проект доступен в готовом настроенном виде по адресу
+        <br>http://
+        <br><p>В проекте не использовал JavaScript, т.к. нет необходимости особой.
+        <p>Пишу на JavaScript, React, Angular
+        <p>Пример написанного мной сайта на React
+        <p>http://www.techno-liga74.ru
+        <p>(REST API, PostgREST, PostgreSQL, React) + настроука SSL, всего на сервере, CORS (Cross-Origin Resource Sharing) и т.д.
+        <p>Могу предоставить исходники
+
+        <br><p>1. Приложение написано на Java (Spring Boot)
+        <p>2. БД - PostgreSQL
+        <p>3. Доступ к данным осуществляется посредством Spring Data (по технологии Java Persistence Architecture)
+        <p>4. Инпорт данных - файл в формате JSON (пример файла прилагается)
+        <p>5. Импорт данных посредством REST API MOEX
+        <p>6. Экспорт данных в формате JSON (REST API)
+
+        <br><p>Кнопки на NavBar'е
+
+        <br><p>Data
+        <p>Главная страница приложение отражает текущие записи БД.
+
+        <br><p>Import
+        <p>Импорт файла JSON с данными, пример файла прилагается в исходниках (data.json) или по ссылке
+        http://
+
+        <br><p>from MOEX
+        <p>Пример запроса на импорт данных из базы MOEX, (дата 2020-08-10 захардкожена).
+        <p>Данные получаются посредством http-запроса вида
+        http://iss.moex.com/iss/history/engines/stock/markets/shares/boards/tqbr/securities.json?date=" + date + "&iss.meta=off&lang=RU&history.columns=SECID,SHORTNAME,TRADEDATE,NUMTRADES,OPEN,CLOSE&iss.json=extended
+
+        <br><p>New
+        <p>Создание новой бумаги. Проверка поля name на соответствование требованиям средствами html (pattern)
+
+        <br><p>Truncate
+        <p>Быстрая очистка таблицы данных
+
+        <br><p>Export
+        <p>Вывод двнных в формате JSON
+
+        <br><h2>API приложения (пример использования):</h2>
+
+        <br><p>/
+        <p>главная страница с данными
+
+        <br><p>/sort={sortOrder}
+        <p>/sort=open
+        <p>Пример сортировки по полю. sortOrder - поле, по которому сортируем
+
+        <br><p>/date={dateFilter}
+        <p>/date=2020-08-10
+        <p>Пример фильтрации по полю tradedate
+
+        <br><p>/help
+        <p>Эта страница, доступная в браузере
+
+        <br><p>/securities/{date}
+        <p>/securities/2020-08-10
+        <p>Пример загрузки данных посредством http-запроса к MOEX
+
+        <br><p>/new
+        <p>Создание новой бумаги (страница)
+
+        <br><p>/papers
+        <p>Данные таблицы в формате JSON
+
+        <br><p>/papers/{id}
+        <p>/papers/1
+        <p>Данные бумаги по id (RegNumber)
+
+        <br><p>/papers/truncate
+        <p>Очистка таблица БД
+
+        <br><p>/papers/delete/{id}
+        <p>/papers/delete/1
+        <p>Удаление бумаги по id (RegNumber)
+
+        <br><p>/papers/add/{secid}/{name}/{emitent_title}/{tradedate}/{numtrades}/{open}/{close}
+        <p>/papers/add/DIOD/ЗаводДИОД/ЗаводДИОД/2020-08-10/718/6.95/7.46
+        <p>Создание бумаги через API
+
+        <br><p>/import
+        <p>Загрузка бумаги из файла (страница)
+
+        <br><p>_____________________________________
+        <p>Немного запутался в задании, таблицу history не использовал, если нужно,
+        могу ответить на вопросы по FOREIGN CONSTRAINT или OneToMany (JPA)
+
     </div>
 </main>
 </body>
