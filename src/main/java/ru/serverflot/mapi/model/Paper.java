@@ -17,8 +17,6 @@ public class Paper extends AuditModel {
         this.close = close;
     }
 
-
-
     @Id
     @GeneratedValue(generator = "tab_papers_generator")
     @SequenceGenerator(

@@ -18,7 +18,7 @@
         <form name="new" action="" method="post">
             <table>
                 <tr><td>secid:</td><td><input name="secid" type="text"></td></tr>
-                <tr><td>name:</td><td><input name="name" type="text"></td></tr>
+                <tr><td>name:</td><td><input name="name" type="text" required pattern="^[а-яА-ЯёЁ0-9\s]+$" title="Только кириллица, цыфры и пробел"></td></tr>
                 <tr><td>emitent_title:</td><td><input name="emitent_title" type="text"></td></tr>
                 <tr><td>tradedate:</td><td><input name="tradedate" type="date"></td></tr>
                 <tr><td>numtrades:</td><td><input name="numtrades" type="number"></td></tr>
